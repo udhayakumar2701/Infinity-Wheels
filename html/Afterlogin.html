@@ -2,9 +2,14 @@
 <html>
 <head>
   <title>Home</title>
-  <link rel="stylesheet" href="style\styles.css">
+  <link rel="stylesheet" href="/style/styles.css">
+  <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-auth.js"></script>
 </head>
 <body>
+  <h1>Welcome to the After Login Page</h1>
+  <p>User Email: <span id="userEmail"></span></p>
+  <p>User Password: <span id="userPassword"></span></p>
 <!-- 
 
 Navigation Bar
@@ -74,7 +79,7 @@ Section 3
       <li><a href="#">Surface</a></li>
       <li><a href="#">Xbox</a></li>
       <li><a href="#">Deals</a></li>
-      <li><a href="login.html">Login</a></li>
+      <li><button class="logout-btn">Logout</button></li>
     </ul>
 
     <ul class="right-menu">
@@ -277,17 +282,78 @@ Section 3
       <div class="footer-inner">
         <div><i class="fas fa-globe fa-2x"></i> English (United States)</div>
         <ul>
-          <li><a href="#">Sitemap</a></li>
-        <li><a href="#">Contact Infinity-wheels</a></li>
-        <li><a href="#">Privacy & cookies</a></li>
-        <li><a href="#">Terms of use</a></li>
+          <li><a href="html/sitemap.html">Sitemap</a></li>
+        <li><a href="html/contactAs.html">Contact Infinity-wheels</a></li>
+        <li><a href="html/privacy&cookies .html">Privacy & cookies</a></li>
+        <li><a href="html/termsofuse.html">Terms of use</a></li>
         <li><a href="#">Trademarks</a></li>
         <li><a href="#">Safety & eco</a></li>
         <li><a href="#">About our ads</a></li>
-        <li><a href="#">&copy; Microsoft 2020</a></li>
+      
         </ul>
       </div>
     </footer>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { getAuth, initializeApp, signOut } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-auth.js";
 
-</body>
-</html>
+    // Function to get query parameters from URL
+    function getQueryParams() {
+      const params = new URLSearchParams(window.location.search);
+      return {
+        email: params.get('email'),
+        password: params.get('password')
+      };
+    }
+
+    // Retrieve the email and password from query parameters
+    const queryParams = getQueryParams();
+    const userEmail = queryParams.email;
+    const userPassword = queryParams.password;
+    document.getElementById("userEmail").innerText = userEmail;
+document.getElementById("userPassword").innerText = userPassword;
+    // You can use the retrieved email and password as needed on this page
+    // console.log('User Email:', userEmail);
+    // console.log('User Password:', userPassword);
+    
+
+    const firebaseConfig = {
+      // Your Firebase config details here
+      apiKey: "AIzaSyBb6uZ8gLXSeLAYDigJBfYcdOBNLXjHJC4",
+		authDomain: "infinity-wheels-9d40b.firebaseapp.com",
+		projectId: "infinity-wheels-9d40b",
+		storageBucket: "infinity-wheels-9d40b.appspot.com",
+		messagingSenderId: "905577207718",
+		appId: "1:905577207718:web:ce1ebfb521ad70fc21a167",
+		measurementId: "G-ZCC5H5KN6D"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth();
+
+    // Add an event listener to the logout button
+    document.getElementById("logoutBtn").addEventListener("click", function () {
+      signOut(auth)
+        .then(() => {
+          // Sign-out successful.
+          console.log('Sign-out successful.');
+          alert('Sign-out successful.');
+          // Redirect to the login page after logout
+          window.location.href = "index.html";
+        })
+        .catch((error) => {
+          // An error happened.
+          console.log('An error happened.');
+        });
+    });
+   
+      </script>
+      
+      </body>
+      </html>
+      
+
+    
+    
+    
+

@@ -2,6 +2,7 @@
 <html>
 
 <head>
+	
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<!-- Bootstrap theme -->
@@ -57,7 +58,8 @@
 					</div>
 				</div>
 				<div class="btn-Wraper">
-					<button type="button" id="login" name="login" class="button-86" role="button">Login</button>
+					<button type="button" id="login" name="login" class="button-86" role="button">login</button>
+					<!-- <button type="button" id="logout" name="login" class="button-86" role="button">logout</button> -->
 				</div>
 			</div><!-- end col -->
 
@@ -119,6 +121,10 @@
 				console.log(user);
 				alert(user.email + " Login successfully!!!");
 				document.getElementById('logout').style.display = 'block';
+				//document.getElementById('logout').style.display = 'block';
+
+          // Redirect to the home page
+         window.location.href = `html/Afterlogin.html?email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`;
 				// ...
 			})
 			.catch((error) => {

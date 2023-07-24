@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - Infinity Wheels</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* email:rorep81232@ridteam.com  pass:Wheels@123*/
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #ffffff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      color: #007bff;
+      margin-bottom: 20px;
+    }
+
+    p {
+      margin: 10px 0;
+    }
+
+    .contact-info h2 {
+      color: #333;
+    }
+
+    .contact-form {
+      margin-top: 30px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    input,
+    textarea {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+  <!-- Formspree JavaScript library -->
+  <script src="https://unpkg.com/formspree@1.0.0-beta.7/dist/formspree.min.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Contact Us</h1>
+    <p>If you have any questions or inquiries, please feel free to reach out to us. We would be happy to assist you!</p>
+    <div class="contact-info">
+      <h2>Infinity Wheels</h2>
+      <p><strong>Address:</strong> 123 Main Street, City, Country</p>
+      <p><strong>Email:</strong> info@infinitywheels.com</p>
+      <p><strong>Phone:</strong> +1 (123) 456-7890</p>
+    </div>
+    <div class="contact-form">
+      <h2>Send us a message</h2>
+      <!-- Formspree form -->
+      <form id="contactForm" action="https://formspree.io/f/mzblzyal" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>
